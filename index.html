@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수성더팰리스2차어린이집 - 포근한 사랑으로 자라나는 우리 아이들</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF8F0;
+    --peach:#FFE3D3;
+    --pink:#FFC9D6;
+    --mint:#CDEFE3;
+    --sky:#CDE6F7;
+    --butter:#FFE9A8;
+    --cocoa:#6B5147;
+    --coral:#F58F7C;
+    --deep:#4A6B5D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans KR',sans-serif;
+    background:var(--cream);
+    color:var(--cocoa);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.logo{font-family:'Jua',sans-serif;font-weight:400;}
+  .hand{font-family:'Gaegu',cursive;}
+
+  /* ── 상단 메뉴 ── */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,248,240,.95);
+    backdrop-filter:blur(6px);
+    border-bottom:3px dotted var(--pink);
+  }
+  .nav{
+    max-width:1080px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 20px;
+  }
+  .logo{font-size:1.35rem;color:var(--coral);display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .logo .badge{
+    background:var(--deep);color:#fff;font-size:.62rem;
+    font-family:'Noto Sans KR',sans-serif;font-weight:700;
+    padding:3px 8px;border-radius:999px;letter-spacing:.05em;
+  }
+  nav ul{display:flex;gap:6px;list-style:none;}
+  nav a{
+    text-decoration:none;color:var(--cocoa);font-weight:500;font-size:.92rem;
+    padding:8px 14px;border-radius:999px;transition:.25s;
+  }
+  nav a:hover,nav a:focus-visible{background:var(--peach);color:var(--coral);}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--coral);cursor:pointer;}
+
+  /* ── 히어로 ── */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg,var(--sky) 0%,var(--cream) 100%);
+    padding:70px 20px 0;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero .cloud{
+    position:absolute;background:#fff;border-radius:999px;opacity:.85;
+    animation:drift 26s linear infinite;
+  }
+  .hero .cloud::before,.hero .cloud::after{content:'';position:absolute;background:#fff;border-radius:50%;}
+  .c1{width:130px;height:44px;top:60px;left:-140px;}
+  .c1::before{width:55px;height:55px;top:-24px;left:22px;}
+  .c1::after{width:40px;height:40px;top:-16px;left:64px;}
+  .c2{width:100px;height:36px;top:150px;left:-120px;animation-delay:9s;animation-duration:34s;}
+  .c2::before{width:44px;height:44px;top:-20px;left:16px;}
+  .c2::after{width:32px;height:32px;top:-13px;left:52px;}
+  @keyframes drift{from{transform:translateX(0);}to{transform:translateX(calc(100vw + 300px));}}
+  @media (prefers-reduced-motion:reduce){
+    .hero .cloud,.bounce{animation:none!important;}
+  }
+  .hero h1{
+    font-size:clamp(1.9rem,5vw,3.1rem);
+    color:var(--cocoa);
+    margin-bottom:14px;
+    position:relative;z-index:2;
+  }
+  .hero h1 .accent{color:var(--coral);}
+  .hero p.sub{
+    font-size:clamp(1rem,2.4vw,1.2rem);
+    color:#8a7266;max-width:560px;margin:0 auto 30px;
+    position:relative;z-index:2;
+  }
+  .hero .cta{
+    display:inline-block;background:var(--coral);color:#fff;
+    font-family:'Jua',sans-serif;font-size:1.05rem;
+    padding:14px 34px;border-radius:999px;text-decoration:none;
+    box-shadow:0 6px 0 #d9705e;transition:.15s;position:relative;z-index:2;
+  }
+  .hero .cta:hover{transform:translateY(2px);box-shadow:0 4px 0 #d9705e;}
+  .hero-friends{
+    display:flex;justify-content:center;align-items:flex-end;gap:clamp(8px,3vw,36px);
+    margin-top:44px;position:relative;z-index:2;
+  }
+  .hero-friends svg{width:clamp(90px,16vw,150px);height:auto;}
+  .bounce{animation:bounce 3.2s ease-in-out infinite;}
+  .bounce.d1{animation-delay:.4s;}
+  .bounce.d2{animation-delay:.8s;}
+  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  .hill{
+    display:block;width:100%;height:70px;margin-top:-14px;
+    background:radial-gradient(120% 90px at 50% 0,transparent 60%,var(--mint) 61%);
+  }
+
+  /* ── 공통 섹션 ── */
+  section{padding:70px 20px;}
+  .wrap{max-width:1080px;margin:0 auto;}
+  .sec-head{text-align:center;margin-bottom:44px;}
+  .sec-head .tag{
+    display:inline-block;background:var(--butter);color:var(--cocoa);
+    font-family:'Gaegu',cursive;font-weight:700;font-size:1.05rem;
+    padding:4px 18px;border-radius:999px;margin-bottom:12px;
+  }
+  .sec-head h2{font-size:clamp(1.5rem,3.6vw,2.2rem);}
+
+  /* ── 홍보영상 ── */
+  .promo{background:var(--cream);padding-top:56px;}
+  .video-frame{
+    background:#fff;border-radius:30px;padding:16px;
+    box-shadow:0 14px 34px rgba(107,81,71,.12);
+    border:4px solid var(--butter);
+  }
+  .video-inner{position:relative;width:100%;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:var(--sky);}
+  .video-inner iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-ph{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:14px;
+    font-family:'Gaegu',cursive;font-weight:700;font-size:1.15rem;
+    color:var(--deep);text-align:center;
+    background:repeating-linear-gradient(45deg,var(--sky) 0 24px,#DBEDFA 24px 48px);
+  }
+  .video-ph .play{
+    width:74px;height:74px;border-radius:50%;background:var(--coral);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:1.7rem;
+    padding-left:6px;box-shadow:0 6px 0 #d9705e;
+  }
+
+  /* ── 원 소개 ── */
+  .intro{background:var(--mint);}
+  .intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
+  .intro-card{
+    background:#fff;border-radius:28px;padding:34px;
+    box-shadow:0 10px 30px rgba(107,81,71,.08);
+  }
+  .intro-card p{margin-bottom:14px;font-size:.98rem;}
+  .intro-card p:last-child{margin-bottom:0;}
+  .intro-points{display:grid;gap:14px;}
+  .point{
+    display:flex;gap:14px;align-items:flex-start;
+    background:#fff;border-radius:20px;padding:18px 20px;
+    box-shadow:0 6px 18px rgba(107,81,71,.07);
+  }
+  .point .ico{
+    flex:0 0 44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  }
+  .point:nth-child(1) .ico{background:var(--pink);}
+  .point:nth-child(2) .ico{background:var(--butter);}
+  .point:nth-child(3) .ico{background:var(--sky);}
+  .point h3{font-size:1.05rem;margin-bottom:2px;}
+  .point p{font-size:.88rem;color:#8a7266;}
+
+  /* ── 반 소개 ── */
+  .classes{background:var(--cream);}
+  .class-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .class-card{
+    background:#fff;border-radius:30px;padding:32px 24px 28px;text-align:center;
+    box-shadow:0 10px 26px rgba(107,81,71,.09);
+    border-top:8px solid;transition:.25s;
+  }
+  .class-card:hover{transform:translateY(-8px);}
+  .class-card.pobi{border-color:var(--sky);}
+  .class-card.eddy{border-color:var(--butter);}
+  .class-card.loopy{border-color:var(--pink);}
+  .class-card svg{width:110px;height:110px;margin-bottom:14px;}
+  .class-card h3{font-size:1.4rem;margin-bottom:4px;}
+  .class-card .age{
+    display:inline-block;font-size:.8rem;font-weight:700;color:#fff;
+    padding:3px 14px;border-radius:999px;margin-bottom:14px;
+  }
+  .pobi .age{background:#7FB6DE;}
+  .eddy .age{background:#E8B94E;}
+  .loopy .age{background:#F090A8;}
+  .class-card p{font-size:.9rem;color:#8a7266;}
+
+  /* ── 하루 일과 ── */
+  .day{background:var(--peach);}
+  .timeline{max-width:640px;margin:0 auto;display:grid;gap:0;}
+  .t-item{
+    display:grid;grid-template-columns:92px 26px 1fr;gap:14px;align-items:flex-start;
+  }
+  .t-time{font-family:'Jua',sans-serif;color:var(--coral);font-size:1rem;text-align:right;padding-top:2px;}
+  .t-dotcol{display:flex;flex-direction:column;align-items:center;}
+  .t-dot{width:16px;height:16px;border-radius:50%;background:var(--coral);border:4px solid #fff;box-shadow:0 0 0 2px var(--coral);}
+  .t-line{width:3px;flex:1;background:repeating-linear-gradient(var(--coral) 0 5px,transparent 5px 11px);min-height:38px;}
+  .t-item:last-child .t-line{display:none;}
+  .t-body{background:#fff;border-radius:18px;padding:14px 20px;margin-bottom:18px;box-shadow:0 5px 14px rgba(107,81,71,.07);}
+  .t-body h3{font-size:1rem;}
+  .t-body p{font-size:.85rem;color:#8a7266;}
+
+  /* ── 공지사항 ── */
+  .notice ul{list-style:none;max-width:760px;margin:0 auto;display:grid;gap:12px;}
+  .notice li a{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    background:#fff;border:2px solid var(--peach);border-radius:18px;
+    padding:16px 22px;text-decoration:none;color:var(--cocoa);transition:.2s;
+  }
+  .notice li a:hover{border-color:var(--coral);background:var(--cream);}
+  .notice .n-title{font-weight:500;font-size:.95rem;display:flex;align-items:center;gap:10px;}
+  .notice .n-new{background:var(--coral);color:#fff;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:999px;}
+  .notice .n-date{font-size:.8rem;color:#b09a8e;white-space:nowrap;}
+
+  /* ── 오시는 길 ── */
+  .visit{background:var(--sky);}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  .visit-card{background:#fff;border-radius:26px;padding:30px;box-shadow:0 8px 22px rgba(107,81,71,.08);}
+  .visit-card h3{font-size:1.15rem;margin-bottom:14px;color:var(--coral);}
+  .visit-card dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:.92rem;}
+  .visit-card dt{font-weight:700;white-space:nowrap;}
+  .map-ph{
+    background:var(--mint);border-radius:26px;min-height:260px;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;
+    font-family:'Gaegu',cursive;font-weight:700;font-size:1.1rem;color:var(--deep);
+    border:3px dashed var(--deep);
+  }
+
+  footer{
+    background:var(--cocoa);color:#f3e6dd;text-align:center;
+    padding:34px 20px;font-size:.85rem;
+  }
+  footer .logo{color:var(--butter);justify-content:center;margin-bottom:10px;}
+
+  @media(max-width:820px){
+    nav ul{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      background:var(--cream);flex-direction:column;padding:12px 20px 20px;
+      border-bottom:3px dotted var(--pink);
+    }
+    nav ul.open{display:flex;}
+    .menu-toggle{display:block;}
+    .intro-grid,.visit-grid{grid-template-columns:1fr;}
+    .class-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto;}
+    .t-item{grid-template-columns:70px 22px 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#top">🌈 수성더팰리스2차어린이집 <span class="badge">국공립</span></a>
+    <button class="menu-toggle" aria-label="메뉴 열기" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+    <nav>
+      <ul>
+        <li><a href="#promo">홍보영상</a></li>
+        <li><a href="#intro">원 소개</a></li>
+        <li><a href="#classes">반 소개</a></li>
+        <li><a href="#day">하루 일과</a></li>
+        <li><a href="#notice">공지사항</a></li>
+        <li><a href="#visit">오시는 길</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 히어로 -->
+<div class="hero" id="top">
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <h1>포근한 사랑 속에서<br><span class="accent">반짝반짝</span> 자라나는 우리 아이들</h1>
+  <p class="sub">수성더팰리스2차어린이집은 제4차 표준보육과정에 따라<br>영유아가 놀이의 주인공이 되는 행복한 배움터를 만들어갑니다.</p>
+  <a class="cta" href="#visit">입소 상담 문의하기 💌</a>
+
+  <div class="hero-friends" aria-hidden="true">
+    <!-- 하얀곰 (포비반) -->
+    <svg class="bounce" viewBox="0 0 120 120">
+      <circle cx="30" cy="30" r="14" fill="#F2F7FB"/><circle cx="90" cy="30" r="14" fill="#F2F7FB"/>
+      <circle cx="30" cy="32" r="7" fill="#CDE6F7"/><circle cx="90" cy="32" r="7" fill="#CDE6F7"/>
+      <circle cx="60" cy="62" r="44" fill="#F2F7FB"/>
+      <ellipse cx="60" cy="76" rx="20" ry="15" fill="#fff"/>
+      <circle cx="44" cy="54" r="5" fill="#4A3B33"/><circle cx="76" cy="54" r="5" fill="#4A3B33"/>
+      <circle cx="46" cy="52" r="1.6" fill="#fff"/><circle cx="78" cy="52" r="1.6" fill="#fff"/>
+      <ellipse cx="60" cy="68" rx="6" ry="4.5" fill="#4A3B33"/>
+      <path d="M52 80 Q60 87 68 80" stroke="#4A3B33" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="34" cy="66" r="6" fill="#FFC9D6" opacity=".8"/><circle cx="86" cy="66" r="6" fill="#FFC9D6" opacity=".8"/>
+    </svg>
+    <!-- 여우 (에디반) -->
+    <svg class="bounce d1" viewBox="0 0 120 120">
+      <path d="M22 18 L42 44 L16 48 Z" fill="#F0B24E"/><path d="M98 18 L78 44 L104 48 Z" fill="#F0B24E"/>
+      <path d="M26 24 L40 42 L22 45 Z" fill="#FFE3D3"/><path d="M94 24 L80 42 L98 45 Z" fill="#FFE3D3"/>
+      <circle cx="60" cy="66" r="42" fill="#F0B24E"/>
+      <path d="M60 108 Q30 100 34 74 Q46 88 60 88 Q74 88 86 74 Q90 100 60 108" fill="#FFF4E3"/>
+      <circle cx="45" cy="58" r="5" fill="#4A3B33"/><circle cx="75" cy="58" r="5" fill="#4A3B33"/>
+      <circle cx="47" cy="56" r="1.6" fill="#fff"/><circle cx="77" cy="56" r="1.6" fill="#fff"/>
+      <ellipse cx="60" cy="72" rx="5.5" ry="4.5" fill="#4A3B33"/>
+      <path d="M53 82 Q60 88 67 82" stroke="#4A3B33" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="36" cy="70" r="6" fill="#F58F7C" opacity=".7"/><circle cx="84" cy="70" r="6" fill="#F58F7C" opacity=".7"/>
+    </svg>
+    <!-- 분홍 비버 (루피반) -->
+    <svg class="bounce d2" viewBox="0 0 120 120">
+      <circle cx="32" cy="26" r="12" fill="#F7B8C8"/><circle cx="88" cy="26" r="12" fill="#F7B8C8"/>
+      <circle cx="32" cy="28" r="6" fill="#FFDDE7"/><circle cx="88" cy="28" r="6" fill="#FFDDE7"/>
+      <circle cx="60" cy="62" r="44" fill="#F7B8C8"/>
+      <ellipse cx="60" cy="78" rx="22" ry="16" fill="#FFEFF4"/>
+      <circle cx="44" cy="54" r="5" fill="#4A3B33"/><circle cx="76" cy="54" r="5" fill="#4A3B33"/>
+      <circle cx="46" cy="52" r="1.6" fill="#fff"/><circle cx="78" cy="52" r="1.6" fill="#fff"/>
+      <ellipse cx="60" cy="66" rx="6" ry="4.5" fill="#4A3B33"/>
+      <rect x="54" y="76" width="5" height="8" rx="2" fill="#fff" stroke="#E8A0B4" stroke-width="1"/>
+      <rect x="61" y="76" width="5" height="8" rx="2" fill="#fff" stroke="#E8A0B4" stroke-width="1"/>
+      <circle cx="34" cy="66" r="6" fill="#F58F7C" opacity=".6"/><circle cx="86" cy="66" r="6" fill="#F58F7C" opacity=".6"/>
+    </svg>
+  </div>
+  <span class="hill"></span>
+</div>
+
+<!-- 홍보영상 -->
+<section class="promo" id="promo">
+  <div class="wrap" style="max-width:860px;">
+    <div class="sec-head">
+      <span class="tag">우리 어린이집이 궁금하다면?</span>
+      <h2>어린이집 홍보영상 🎬</h2>
+    </div>
+    <div class="video-frame">
+      <div class="video-inner">
+        <!-- 실제 영상 삽입 시 아래 주석을 해제하고 유튜브 영상 주소를 넣어주세요 -->
+        <!-- <iframe src="https://www.youtube.com/embed/영상ID" title="어린이집 홍보영상" allowfullscreen></iframe> -->
+        <div class="video-ph">
+          <span class="play">▶</span>
+          <p>홍보영상이 들어갈 자리예요<br><span style="font-size:.8rem;font-family:'Noto Sans KR',sans-serif;font-weight:400;">(유튜브 영상 주소만 넣으면 바로 재생됩니다)</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 원 소개 -->
+<section class="intro" id="intro">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">우리 어린이집을 소개해요</span>
+      <h2>믿고 맡길 수 있는 국공립 어린이집</h2>
+    </div>
+    <div class="intro-grid">
+      <div class="intro-card">
+        <p><strong>수성더팰리스2차어린이집</strong>은 지방자치단체가 설치·운영하는 국공립 어린이집으로, 보건복지부 <strong>제4차 어린이집 표준보육과정</strong>에 근거하여 영유아 중심·놀이 중심의 보육을 실천하고 있습니다.</p>
+        <p>기본생활, 신체운동, 의사소통, 사회관계, 예술경험, 자연탐구의 6개 영역이 아이들의 하루 놀이 속에 자연스럽게 녹아들도록, 교사가 아이의 흥미를 따라가며 놀이를 지원합니다.</p>
+        <p>가정과 같이 따뜻하고 안전한 환경에서, 한 명 한 명의 아이가 자신만의 속도로 건강하게 자랄 수 있도록 온 마음을 다하겠습니다.</p>
+      </div>
+      <div class="intro-points">
+        <div class="point">
+          <div class="ico">💗</div>
+          <div><h3>영유아 중심 · 놀이 중심</h3><p>아이가 주도하는 놀이를 통해 배움이 일어나는 표준보육과정을 운영해요.</p></div>
+        </div>
+        <div class="point">
+          <div class="ico">🥗</div>
+          <div><h3>안전한 급·간식과 위생</h3><p>영양사 식단에 따른 균형 잡힌 급식과 철저한 위생·안전 관리를 실천해요.</p></div>
+        </div>
+        <div class="point">
+          <div class="ico">🤝</div>
+          <div><h3>가정과 함께하는 보육</h3><p>부모 참여 수업, 운영위원회, 상담을 통해 가정과 소통하며 아이를 함께 키워요.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 반 소개 -->
+<section class="classes" id="classes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">우리 반 친구들</span>
+      <h2>사랑스러운 세 개의 반을 소개해요</h2>
+    </div>
+    <div class="class-grid">
+      <div class="class-card loopy">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="32" cy="26" r="12" fill="#F7B8C8"/><circle cx="88" cy="26" r="12" fill="#F7B8C8"/>
+          <circle cx="32" cy="28" r="6" fill="#FFDDE7"/><circle cx="88" cy="28" r="6" fill="#FFDDE7"/>
+          <circle cx="60" cy="62" r="44" fill="#F7B8C8"/>
+          <ellipse cx="60" cy="78" rx="22" ry="16" fill="#FFEFF4"/>
+          <circle cx="44" cy="54" r="5" fill="#4A3B33"/><circle cx="76" cy="54" r="5" fill="#4A3B33"/>
+          <ellipse cx="60" cy="66" rx="6" ry="4.5" fill="#4A3B33"/>
+          <rect x="54" y="76" width="5" height="8" rx="2" fill="#fff" stroke="#E8A0B4"/>
+          <rect x="61" y="76" width="5" height="8" rx="2" fill="#fff" stroke="#E8A0B4"/>
+        </svg>
+        <h3>루피반</h3>
+        <span class="age">만 0~1세</span>
+        <p>애착 형성이 가장 중요한 시기예요. 기본생활과 신체운동·건강 영역을 중심으로, 따뜻한 스킨십과 안정적인 일과 속에서 세상에 대한 신뢰를 쌓아가요.</p>
+      </div>
+      <div class="class-card eddy">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M22 18 L42 44 L16 48 Z" fill="#F0B24E"/><path d="M98 18 L78 44 L104 48 Z" fill="#F0B24E"/>
+          <path d="M26 24 L40 42 L22 45 Z" fill="#FFE3D3"/><path d="M94 24 L80 42 L98 45 Z" fill="#FFE3D3"/>
+          <circle cx="60" cy="66" r="42" fill="#F0B24E"/>
+          <path d="M60 108 Q30 100 34 74 Q46 88 60 88 Q74 88 86 74 Q90 100 60 108" fill="#FFF4E3"/>
+          <circle cx="45" cy="58" r="5" fill="#4A3B33"/><circle cx="75" cy="58" r="5" fill="#4A3B33"/>
+          <ellipse cx="60" cy="72" rx="5.5" ry="4.5" fill="#4A3B33"/>
+          <path d="M53 82 Q60 88 67 82" stroke="#4A3B33" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+        <h3>에디반</h3>
+        <span class="age">만 1~2세</span>
+        <p>호기심이 폭발하는 시기랍니다. 의사소통과 자연탐구 영역을 중심으로, 감각·탐색 놀이를 통해 "이게 뭐지?" 하는 궁금증을 마음껏 펼쳐요.</p>
+      </div>
+      <div class="class-card pobi">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="30" cy="30" r="14" fill="#F2F7FB"/><circle cx="90" cy="30" r="14" fill="#F2F7FB"/>
+          <circle cx="30" cy="32" r="7" fill="#CDE6F7"/><circle cx="90" cy="32" r="7" fill="#CDE6F7"/>
+          <circle cx="60" cy="62" r="44" fill="#F2F7FB"/>
+          <ellipse cx="60" cy="76" rx="20" ry="15" fill="#fff"/>
+          <circle cx="44" cy="54" r="5" fill="#4A3B33"/><circle cx="76" cy="54" r="5" fill="#4A3B33"/>
+          <ellipse cx="60" cy="68" rx="6" ry="4.5" fill="#4A3B33"/>
+          <path d="M52 80 Q60 87 68 80" stroke="#4A3B33" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+        <h3>포비반</h3>
+        <span class="age">만 2세</span>
+        <p>"내가 할래!"가 시작되는 자율성의 시기예요. 사회관계와 예술경험 영역을 중심으로, 친구와 어울리는 즐거움과 표현하는 기쁨을 배워가요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 하루 일과 -->
+<section class="day" id="day">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">우리들의 하루</span>
+      <h2>표준보육과정에 따른 하루 일과</h2>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">7:30</div>
+        <div class="t-dotcol"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body"><h3>등원 및 통합보육 🌤️</h3><p>선생님과 반갑게 인사하고 건강 상태를 살펴요.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">9:00</div>
+        <div class="t-dotcol"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body"><h3>오전 간식 및 자유놀이 🧸</h3><p>아이가 스스로 선택한 놀이에 푹 빠져드는 시간이에요.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">10:30</div>
+        <div class="t-dotcol"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body"><h3>실외놀이 · 산책 🍃</h3><p>바깥 놀이로 신체운동과 자연탐구가 쑥쑥 자라요.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">11:30</div>
+        <div class="t-dotcol"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body"><h3>점심 식사 🍚</h3><p>골고루 먹는 즐거움, 기본생활습관을 익혀요.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">12:30</div>
+        <div class="t-dotcol"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body"><h3>낮잠 및 휴식 😴</h3><p>포근한 이불 속에서 몸과 마음이 쉬어가요.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">15:00</div>
+        <div class="t-dotcol"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body"><h3>오후 간식 및 놀이 🎨</h3><p>오전 놀이를 이어가며 표현 활동을 즐겨요.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">16:00~</div>
+        <div class="t-dotcol"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-body"><h3>귀가 및 통합보육 👋</h3><p>오늘 하루 이야기를 나누며 가정으로 돌아가요.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 공지사항 -->
+<section class="notice" id="notice">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">알려드려요</span>
+      <h2>공지사항</h2>
+    </div>
+    <ul>
+      <li><a href="#"><span class="n-title"><span class="n-new">NEW</span>2026학년도 하반기 입소 대기 신청 안내</span><span class="n-date">2026.07.10</span></a></li>
+      <li><a href="#"><span class="n-title"><span class="n-new">NEW</span>여름철 물놀이 안전교육 실시 안내</span><span class="n-date">2026.07.07</span></a></li>
+      <li><a href="#"><span class="n-title">7월 식단표 및 보육계획안 안내</span><span class="n-date">2026.06.30</span></a></li>
+      <li><a href="#"><span class="n-title">부모 참여수업 「우리 아이 놀이 들여다보기」 안내</span><span class="n-date">2026.06.24</span></a></li>
+      <li><a href="#"><span class="n-title">어린이집 운영위원회 회의 결과 공지</span><span class="n-date">2026.06.18</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 오시는 길 -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">놀러 오세요</span>
+      <h2>오시는 길 · 입소 문의</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <h3>📞 문의 안내</h3>
+        <dl>
+          <dt>주소</dt><dd>대구광역시 수성구 ○○로 ○○ (더팰리스 2차 단지 내)</dd>
+          <dt>전화</dt><dd>053-000-0000</dd>
+          <dt>운영시간</dt><dd>평일 07:30 ~ 19:30</dd>
+          <dt>입소신청</dt><dd>임신육아종합포털 아이사랑 (www.childcare.go.kr)</dd>
+        </dl>
+      </div>
+      <div class="map-ph">
+        🗺️ 지도가 들어갈 자리예요<br><span style="font-size:.85rem;">(네이버/카카오 지도 삽입)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">🌈 수성더팰리스2차어린이집</div>
+  <p>대구광역시 수성구 ○○로 ○○ | Tel. 053-000-0000<br>
+  Copyright © 수성더팰리스2차어린이집. All rights reserved.</p>
+  <p style="margin-top:10px;"><a href="admin.html" style="color:#c9b3a6;font-size:.78rem;text-decoration:none;">🔐 관리자 페이지</a></p>
+</footer>
+
+</body>
+</html>
